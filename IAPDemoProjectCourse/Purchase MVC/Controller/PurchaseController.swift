@@ -11,7 +11,6 @@ import StoreKit
 
 class PurchaseController: UIViewController {
     
-    let purchases = ["consumable", "non-consumable", "auto-renewable", "non-renewable"]
     @IBOutlet weak var tableView: UITableView!
   
     override func viewDidLoad() {
@@ -19,6 +18,8 @@ class PurchaseController: UIViewController {
         
         tableView.tableFooterView = UIView()
         setupNavigationBar()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: IAPManager.productNotificationIdentifier), object: nil)
     }
     
     
@@ -28,6 +29,18 @@ class PurchaseController: UIViewController {
 
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Restore", style: .plain, target: self, action: #selector(restorePurchases))
+    }
+    
+    private func priceStringFor(product: SKProduct) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = product.priceLocale
+        
+        return numberFormatter.string(from: product.price)!
+    }
+    
+    @objc private func reload() {
+        self.tableView.reloadData()
     }
 }
 
@@ -39,14 +52,14 @@ extension PurchaseController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return purchases.count
+        return IAPManager.share.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.purchaseCell, for: indexPath)
         
-        let purchase = purchases[indexPath.row]
-        cell.textLabel?.text = purchase
+        let product = IAPManager.share.products[indexPath.row]
+        cell.textLabel?.text = product.localizedTitle + " - " + self.priceStringFor(product: product)
         return cell
     }
 }

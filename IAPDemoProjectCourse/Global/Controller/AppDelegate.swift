@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        IAPManager.share.setupPerchases { (success) in
+            if success {
+                print("can make mayments")
+                IAPManager.share.getProducts()
+            }
+        }
+        
         return true
     }
 }

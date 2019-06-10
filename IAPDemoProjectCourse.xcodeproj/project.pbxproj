@@ -15,6 +15,8 @@
 		35D095031FA1ABA8005C5BC5 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D095021FA1ABA8005C5BC5 /* MainController.swift */; };
 		35D095051FA1ABCE005C5BC5 /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D095041FA1ABCE005C5BC5 /* PurchaseController.swift */; };
 		FB3E408F22AE35C500A532C9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3E408E22AE35C500A532C9 /* StoreKit.framework */; };
+		FB3E409122AE5E3200A532C9 /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3E409022AE5E3200A532C9 /* IAPProducts.swift */; };
+		FB3E409422AE5F0D00A532C9 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3E409322AE5F0D00A532C9 /* IAPManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		35D095021FA1ABA8005C5BC5 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		35D095041FA1ABCE005C5BC5 /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
 		FB3E408E22AE35C500A532C9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FB3E409022AE5E3200A532C9 /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
+		FB3E409322AE5F0D00A532C9 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 		35D094F51FA1AA70005C5BC5 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				FB3E409222AE5ECC00A532C9 /* Manager */,
 				35D094F71FA1AA7B005C5BC5 /* Model */,
 				35D094F81FA1AA83005C5BC5 /* View */,
 				35D094F61FA1AA76005C5BC5 /* Controller */,
@@ -92,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				3534CE801FA1B45400E591BC /* CellIdentifiers.swift */,
+				FB3E409022AE5E3200A532C9 /* IAPProducts.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +192,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB3E409222AE5ECC00A532C9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FB3E409322AE5F0D00A532C9 /* IAPManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,10 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3E409422AE5F0D00A532C9 /* IAPManager.swift in Sources */,
 				35D095031FA1ABA8005C5BC5 /* MainController.swift in Sources */,
 				35D095051FA1ABCE005C5BC5 /* PurchaseController.swift in Sources */,
 				3534CE811FA1B45400E591BC /* CellIdentifiers.swift in Sources */,
 				35D094E41FA1A73D005C5BC5 /* AppDelegate.swift in Sources */,
+				FB3E409122AE5E3200A532C9 /* IAPProducts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
