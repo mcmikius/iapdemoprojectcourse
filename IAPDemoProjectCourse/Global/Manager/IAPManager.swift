@@ -16,10 +16,11 @@ class IAPManager: NSObject {
     private override init() {}
     
     var products: [SKProduct] = []
+    let paymentQueue = SKPaymentQueue.default()
     
     public func setupPerchases(callback: @escaping(Bool) -> ()) {
         if SKPaymentQueue.canMakePayments() {
-            SKPaymentQueue.default().add(self)
+            paymentQueue.add(self)
             callback(true)
             return
         }
@@ -38,12 +39,49 @@ class IAPManager: NSObject {
         productRequest.start()
         
     }
+    
+    public func purchase(productWith identifier: String) {
+        guard let product = products.filter({ $0.productIdentifier == identifier }).first else { return }
+        let payment = SKPayment(product: product)
+        paymentQueue.add(payment)
+    }
+    
+    public func restoreCompletedTransactions() {
+        paymentQueue.restoreCompletedTransactions()
+    }
 }
 
 
 extension IAPManager: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .deferred: break
+            case .purchasing: break
+            case .failed: failed(transaction: transaction)
+            case .purchased: completed(transaction: transaction)
+            case .restored: restored(transaction: transaction)
+            @unknown default:
+                fatalError()
+            }
+        }
         
+    }
+    private func failed(transaction: SKPaymentTransaction) {
+        if let transactionError = transaction.error as NSError? {
+            if transactionError.code != SKError.paymentCancelled.rawValue {
+                print("Transaction's error:\(transaction.error!.localizedDescription)")
+            }
+        }
+        paymentQueue.finishTransaction(transaction)
+    }
+    
+    private func completed(transaction: SKPaymentTransaction) {
+        paymentQueue.finishTransaction(transaction)
+    }
+    
+    private func restored(transaction: SKPaymentTransaction) {
+        paymentQueue.finishTransaction(transaction)
     }
 }
 

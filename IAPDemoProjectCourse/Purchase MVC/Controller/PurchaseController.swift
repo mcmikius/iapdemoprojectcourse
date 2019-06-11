@@ -12,6 +12,7 @@ import StoreKit
 class PurchaseController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    let iapManager = IAPManager.share
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,12 @@ class PurchaseController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: IAPManager.productNotificationIdentifier), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     @objc private func restorePurchases() {
-        print("restoring purchases")
+        iapManager.restoreCompletedTransactions()
     }
 
     private func setupNavigationBar() {
@@ -52,7 +56,7 @@ extension PurchaseController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return IAPManager.share.products.count
+        return iapManager.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,7 +72,8 @@ extension PurchaseController: UITableViewDataSource {
 extension PurchaseController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        
+        let identifier = iapManager.products[indexPath.row].productIdentifier
+        iapManager.purchase(productWith: identifier)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
