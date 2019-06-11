@@ -77,6 +77,7 @@ extension IAPManager: SKPaymentTransactionObserver {
     }
     
     private func completed(transaction: SKPaymentTransaction) {
+        NotificationCenter.default.post(name: NSNotification.Name(transaction.payment.productIdentifier), object: nil)
         paymentQueue.finishTransaction(transaction)
     }
     
@@ -90,7 +91,7 @@ extension IAPManager: SKProductsRequestDelegate {
         self.products = response.products
         products.forEach { print($0.localizedTitle) }
         if products.count > 0 {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: IAPManager.productNotificationIdentifier), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name( IAPManager.productNotificationIdentifier), object: nil)
         }
     }
 }
