@@ -60,8 +60,12 @@ class PurchaseController: UIViewController {
         print("got non-consumable")
     }
     
-    @objc private func completeAutoRenewable() {
+    @objc private func completeAutoRenewable() -> String {
         print("got auto-renewable")
+        if UserDefaults.standard.bool(forKey: IAPProducts.autoRenewable.rawValue) {
+            return "Subscription enabled"
+        }
+        return "Subscription disabled"
     }
     
     @objc private func completeNonRenewable() {
@@ -86,6 +90,10 @@ extension PurchaseController: UITableViewDataSource {
        let product = iapManager.products[indexPath.row]
         cell.textLabel?.text = product.localizedTitle + " - " + self.priceStringFor(product: product)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return completeAutoRenewable()
     }
 }
 

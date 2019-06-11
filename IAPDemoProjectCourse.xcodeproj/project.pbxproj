@@ -18,9 +18,9 @@
 		C9064A441FA641C000F16D4D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9064A431FA641C000F16D4D /* StoreKit.framework */; };
 		C9064A4F1FA7166A00F16D4D /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9064A4E1FA7166A00F16D4D /* IAPProducts.swift */; };
 		C9064A521FA716F800F16D4D /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9064A511FA716F800F16D4D /* IAPManager.swift */; };
-		C90DD6291FA9FA8C00ACA1C6 /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = C90DD6281FA9FA8400ACA1C6 /* AppleIncRootCertificate.cer */; };
 		C90DD62F1FA9FBC700ACA1C6 /* pkcs7_union_accessors.c in Sources */ = {isa = PBXBuildFile; fileRef = C90DD62E1FA9FBC700ACA1C6 /* pkcs7_union_accessors.c */; };
 		C90DD6311FA9FBF100ACA1C6 /* ReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90DD6301FA9FBF100ACA1C6 /* ReceiptValidator.swift */; };
+		FB8C355522AFEDCC001B292B /* AppleIncRootCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = FB8C355422AFEDCC001B292B /* AppleIncRootCertificate.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +39,11 @@
 		C9064A431FA641C000F16D4D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C9064A4E1FA7166A00F16D4D /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
 		C9064A511FA716F800F16D4D /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
-		C90DD6281FA9FA8400ACA1C6 /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
 		C90DD62A1FA9FB9600ACA1C6 /* IAPDemoProjectCourse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IAPDemoProjectCourse-Bridging-Header.h"; sourceTree = "<group>"; };
 		C90DD62D1FA9FBC700ACA1C6 /* pkcs7_union_accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs7_union_accessors.h; sourceTree = "<group>"; };
 		C90DD62E1FA9FBC700ACA1C6 /* pkcs7_union_accessors.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pkcs7_union_accessors.c; sourceTree = "<group>"; };
 		C90DD6301FA9FBF100ACA1C6 /* ReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptValidator.swift; sourceTree = "<group>"; };
+		FB8C355422AFEDCC001B292B /* AppleIncRootCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleIncRootCertificate.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +202,7 @@
 		35D095011FA1AB7C005C5BC5 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				C90DD6281FA9FA8400ACA1C6 /* AppleIncRootCertificate.cer */,
+				FB8C355422AFEDCC001B292B /* AppleIncRootCertificate.cer */,
 				35D094EA1FA1A73D005C5BC5 /* Assets.xcassets */,
 				35D094EF1FA1A73D005C5BC5 /* Info.plist */,
 			);
@@ -305,7 +305,7 @@
 			files = (
 				35D094EE1FA1A73D005C5BC5 /* LaunchScreen.storyboard in Resources */,
 				35D094EB1FA1A73D005C5BC5 /* Assets.xcassets in Resources */,
-				C90DD6291FA9FA8C00ACA1C6 /* AppleIncRootCertificate.cer in Resources */,
+				FB8C355522AFEDCC001B292B /* AppleIncRootCertificate.cer in Resources */,
 				35D094E91FA1A73D005C5BC5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
