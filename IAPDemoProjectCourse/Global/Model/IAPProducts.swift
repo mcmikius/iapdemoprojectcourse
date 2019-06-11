@@ -2,8 +2,8 @@
 //  IAPProducts.swift
 //  IAPDemoProjectCourse
 //
-//  Created by Michail Bondarenko on 10.06.2019.
-//  Copyright © 2019 Mykhailo Bondarenko. All rights reserved.
+//  Created by Mykhailo Bondarenko on 30/10/2017.
+//  Copyright © 2017 Mykhailo Bondarenko. All rights reserved.
 //
 
 import Foundation
